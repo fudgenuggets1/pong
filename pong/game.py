@@ -54,6 +54,9 @@ class PongGame():
 			self.player1.score += 1
 			self.pong_ball.rect.x = 400
 			self.pong_ball.change_x *= -1
+		else:
+			return
+		self.pong_ball.sounds[0].play()
 		
 def new_game(players = 1):
 	return PongGame(players)

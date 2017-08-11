@@ -1,6 +1,7 @@
 import pygame
-#from __future__ import division
 
+# sound
+pygame.mixer.init()
 
 class Block(pygame.sprite.Sprite):
 
@@ -69,6 +70,7 @@ class PongBall(Block):
 		Block.__init__(self, x, y, width, height)
 		self.change_x = 10
 		self.change_y = 0
+		self.sounds = [pygame.mixer.Sound('sounds/computer_error_alert.wav'), pygame.mixer.Sound('sounds/high_pong.wav'), pygame.mixer.Sound('sounds/low_pong.wav')]
 
 	def update(self, screen):
 		self.draw(screen)
@@ -83,8 +85,10 @@ class PongBall(Block):
 
 	def hit_wall(self):
 		self.change_y *= -1
+		self.sounds[1].play()
 
 	def hit_player(self, hit, direction):
+		self.sounds[2].play()
 		self.change_x *=-1
 		# Math to attempt pong ball movement based on paddle hit
 		# this shit took way too long

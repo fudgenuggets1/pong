@@ -10,7 +10,7 @@ pygame.font.init()
 screen = pygame.display.set_mode((800, 600))
 
 clock = pygame.time.Clock()
-FPS = 60
+FPS = 50
 total_frames = 0
 
 # Making my own buttons gdi
